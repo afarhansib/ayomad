@@ -66,7 +66,7 @@ function toggleFooter(force = false) {
 }
 
 function simpanData() {
-	localStorage["semuaKonten"] = JSON.stringify(data)
+	localStorage["dataAyomad"] = JSON.stringify(data)
 }
 
 function checkChecked(e) {
@@ -77,8 +77,8 @@ window.addEventListener("load", function() {
 	history.replaceState(null, null, " ");
 	let mainHTML = ``;
 	if(window.localStorage) { 
-	  if(localStorage.getItem("semuaKonten")) {
-	    data = JSON.parse(localStorage["semuaKonten"])
+	  if(localStorage.getItem("dataAyomad")) {
+	    data = JSON.parse(localStorage["dataAyomad"])
 	  } else {
 	  	simpanData()
 	  }
