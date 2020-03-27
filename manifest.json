@@ -1,0 +1,22 @@
+{
+	"name": "Ayo Mad !",
+	"short_name": "Ayo Mad !",
+	"description": "Aplikasi untuk Absen.",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#ff2600",
+	"icons": [
+		{
+			"src": "assets/img/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+		// ,
+		// {
+		// 	"src": "assets/img/icon_512.png",
+		// 	"type": "image/png",
+		// 	"sizes": "512x512"
+		// }
+	]
+}

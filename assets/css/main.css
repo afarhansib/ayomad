@@ -1,0 +1,270 @@
+@import url('https://fonts.cdnfonts.com/css/adlinnaka');
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: .2s;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: "Adlinnaka", sans-serif;
+}
+
+:root {
+  --color-base: #ffeda5;
+  --color-text: #333333;
+  --color-text2: #4d4d4d;
+  --color-text3: #cccccc;
+  --color-white: #ffffff;
+  --color-base2: #fff6d7;
+  --color-accent: #ff2600;
+  --color-overlay-green: rgba(0, 255, 0, 0.7);
+  --square-size: 3.5rem;
+  --pc-size: 4rem;
+}
+
+body {
+  background-color: var(--color-base);
+  text-align: center;
+}
+
+nav a {
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 98;
+  /*width: 10rem;*/
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.5rem;
+  position: fixed;
+  display: block;
+  border-radius: 0.25rem;
+  background-color: var(--color-white);
+  text-align: left;
+  line-height: 0.25rem;
+}
+
+nav [class*="nav-bar"] {
+  display: block;
+  height: 0.25rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--color-accent);
+}
+
+nav .nav-bar1 {
+  width: 1rem;
+}
+
+nav .nav-bar2 {
+  width: 1.25rem;
+}
+
+nav .nav-bar3 {
+  width: 0.75rem;
+}
+
+menu {
+  opacity: 0;
+  pointer-events: none;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 99;
+  position: fixed;
+  display: block;
+  border-radius: 0.25rem;
+  background-color: rgba(255,255,255,1);
+  text-align: left;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+menu a {
+  height: 3rem;
+  display: block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+header img {
+  margin-top: 4em;
+  width: 60%;
+}
+
+header h2 {
+  color: var(--color-accent);
+  font-size: .9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4em;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(5, var(--square-size));
+  grid-template-rows: repeat(6, calc(var(--square-size) + 1.25rem));
+  grid-gap: 0.75rem;
+  justify-content: center;
+}
+
+main a {
+  display: grid;
+  grid-template-rows: auto var(--square-size);
+  border-radius: 0.25rem;
+  background-color: var(--color-base2);
+  color: var(--color-text2);
+  overflow: hidden;
+}
+
+main a span {
+  display: block;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  line-height: 1.4rem;
+}
+
+main a div {
+  pointer-events: none;
+  display: grid;
+  height: var(--square-size);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+main a div div {
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  width: var(--square-size);
+  height: var(--square-size);
+  border-radius: 0 0 0.24rem 0.24rem;
+  background-color: var(--color-overlay-green);
+  color: var(--color-text);
+  line-height: var(--square-size);
+  font-size: 2rem;
+}
+main a div[data-completed="true"] div {
+  opacity: 0.7;
+}
+main a div[data-completed="false"] div {
+  opacity: 0;
+}
+
+main a div span {
+  color: var(--color-text);
+  background-color: var(--color-base2);
+  font-size: 0.9rem;
+  line-height: 1.75rem;
+}
+
+div.fake-footer {
+  height: 2.75rem;
+}
+
+div.fake-footer[footer-opened] {
+  height: 13.75rem;
+}
+
+footer {
+  position: fixed;
+  bottom: -11rem;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 13rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+footer[data-state="open"] {
+  bottom: 0;
+}
+
+footer div.footer-handler {
+  height: 3rem;
+  /*background-color: var(--color-accent);*/
+  width: 5rem;
+  pointer-events: none;
+  padding: 1rem;
+  margin: -1rem auto;
+}
+
+footer div.footer-handler span {
+  height: 0.25rem;
+  background-color: var(--color-text3);
+  width: 3rem;
+  display: block;
+  margin: 0.5rem auto;
+  border-radius: 0.125rem;
+}
+
+footer h3.n-day {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  color: var(--color-text3);
+  font-size: 2rem;
+  pointer-events: none;
+  display: none;
+}
+
+footer[data-state="open"] h3.n-day {
+  top: 1rem;
+}
+
+footer h3.progress-title {
+  position: absolute;
+  left: 1.5rem;
+  top: 3rem;
+  font-size: 2rem;
+}
+
+footer[data-state="open"] h3.progress-title {
+  top: 1rem;
+}
+
+footer div.progress-check {
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: var(--pc-size) var(--pc-size) var(--pc-size) var(--pc-size);
+  grid-template-rows: var(--pc-size);
+  height: 8.75rem;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-content: end;
+}
+
+footer[data-state="open"] div.progress-check {
+  pointer-events: all;
+}
+
+footer div.progress-check a {
+  background-color: var(--color-base2);
+  display: block;
+  line-height: calc(var(--pc-size) + 0.25rem);
+  border-radius: 50%;
+  position: relative;
+}
+
+footer div.progress-check a:not(:last-child)::after {
+  display: block;
+  position: absolute;
+  content: "▸";
+  right: -1.5rem;
+  top: 0;
+  font-size: 2rem;
+}
+
+footer div.progress-check a::before {
+  display: block;
+  position: absolute;
+  content: "✔";
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  right: 0;
+  color: var(--color-text);
+  top: 0;
+  background-color: var(--color-overlay-green);
+  font-size: 2rem;
+}
+
+footer div.progress-check a[data-completed="1"]::before {
+  opacity: 0.7;
+}

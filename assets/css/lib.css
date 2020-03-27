@@ -1,0 +1,20 @@
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: 40px;
+	transform: translateX(-50%);
+	padding: 10px;
+	border-left: 4px solid var(--color-accent);
+	border-radius: 4px;
+	background-color: var(--color-base);
+	animation: fade 0.2s ease-out;
+}
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+	
